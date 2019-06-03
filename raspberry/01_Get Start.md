@@ -84,4 +84,44 @@ sudo rm -rf /usr/bin/python
 sudo ln -s /usr/bin/python2 /usr/bin/python
 ```
 
++ 安装Firefox浏览器
+```
+# linux中直接安装firefox-esr
+sudo apt-get install firefox-esr
+# 或Firefox衍生版
+sudo apt-get install iceweasel
+```
+> 要做全屏效果的话, 可以加装插件[FF Fullscreen](https://addons.mozilla.org/en-US/firefox/addon/FF_Fullscreen/)
 
++ 安装中文输入法
+```
+# 安装字库
+sudo apt-get install ttf-wqy-zenhei
+# 安装输入法
+sudo apt-get install scim-pinyin
+# 设置本地语言环境
+sudo raspi-config
+# 然后选择change_locale
+# 选择zh_CN.UTF-8,配置完成
+# 重启
+sudo reboot
+```
+
++ 安装Node.js
+
+> 下载已经[Node官网](https://nodejs.org/zh-cn/download/)编译好的node.js for ARM 最新版本, 树莓派3B选ARMv7
+使用命令uname -a可查看该下载什么版本
+```
+wget https://nodejs.org/dist/v10.16.0/node-v10.16.0-linux-armv7l.tar.xz
+# 解压文件
+tar -xvf node-v10.16.0-linux-armv7l.tar.xz
+# 验证node是否正常，屏幕打印v10.16.0说明正常
+cd node-v10.16.0-linux-armv7l/bin
+node -v
+# 继续下一步
+cd ~/
+$ mv node-v6.9.4-linux-armv7l /usr/local/node
+$ echo PATH=$PATH:/usr/local/node/bin >> ~/.bashrc
+$ source .bashrc
+# 现在任何位置均可使用node和npm了，大功告成！
+```
